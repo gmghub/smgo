@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package smgo;
+
+option go_package = "smgo/api";
+
+service SmgoService {
+    // Get System stat info in JSON
+    rpc GetSysStat(GetSysStatRequest) returns (stream GetSysStatResponse) {}
+}
+
+message GetSysStatRequest {
+    // Stat interval to get stat every n seconds (should be 1-60sec)
+    uint32 statinterval = 1;
+    // Stat period to calculate an average value of m seconds
+    // Should not be greater than stat collector buffer size in server
+    uint32 statperiod = 2;
+    // Collectors list to be added to gRPC response
+    string collectors = 3;
+}
+
+message GetSysStatResponse {
+    // SysStat in JSON
+    bytes sysstat = 1;
+}
