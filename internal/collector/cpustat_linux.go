@@ -18,6 +18,7 @@ func GetCPUStat() CPUStat {
 	// %Cpu(s): 17.9 us,  3.0 sy,  0.0 ni, 79.1 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 	// CPU:  53% usr   4% sys   0% nic  41% idle   0% io   0% irq   0% sirq
 	out, err := exec.Command("top", "-b", "-n1").Output()
+	log.Println(string(out))
 	if err != nil {
 		log.Println(CollectorNameCPUStat, ":", err)
 		return stat
