@@ -51,10 +51,10 @@ build-lin-amd64:
 	GOOS=linux GOARCH=amd64 go build -v -o ./bin/$(BIN)-client -ldflags "$(LDFLAGS)" ./cmd/smgo-client
 
 build-lin-386:
-	rm -f ./bin/386/$(BIN)386
-	rm -f ./bin/386/$(BIN)-client386
-	GOOS=linux GOARCH=386 go build -v -o ./bin/$(BIN)386 -ldflags "$(LDFLAGS)" ./cmd/smgo
-	GOOS=linux GOARCH=386 go build -v -o ./bin/$(BIN)-client386 -ldflags "$(LDFLAGS)" ./cmd/smgo-client
+	rm -f ./bin/lin386/$(BIN)
+	rm -f ./bin/lin386/$(BIN)-client
+	GOOS=linux GOARCH=386 go build -v -o ./bin/lin386/$(BIN) -ldflags "$(LDFLAGS)" ./cmd/smgo
+	GOOS=linux GOARCH=386 go build -v -o ./bin/lin386/$(BIN)-client -ldflags "$(LDFLAGS)" ./cmd/smgo-client
 
 build-mac-arm64:
 	rm -f ./bin/mac/$(BIN)
