@@ -22,7 +22,7 @@ func GetCPUStat() CPUStat {
 		log.Println(CollectorNameCPUStat, ":", err)
 		return stat
 	}
-	rex := regexp.MustCompile(`[Cc][Pp][Uu].{0,5}:\s+([0-9.]+)\%?\s+us.\s+([0-9.]+)\%?\s+sy.\s+([0-9.]+)\%?\s+ni.\s+([0-9.]+)\%?\s+id`)
+	rex := regexp.MustCompile(`[Cc][Pp][Uu].{0,5}:\s+([0-9.]+)\%?\s+us.\s+([0-9.]+)\%?\s+sy.\s+([0-9.]+)\%?\s+ni.\s+([0-9.]+)\%?\s+id`) //nolint:lll
 	m := rex.FindStringSubmatch(string(out))
 	if len(m) < 5 {
 		log.Println(CollectorNameCPUStat, ":", ErrInvalidData)
